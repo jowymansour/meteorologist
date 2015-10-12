@@ -2,21 +2,27 @@
 <html>
 <head>
   <title>Meteorologist</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
+
+    <!-- Connect to Bootstrap CSS -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+  <!-- Connect to Font Awesome CSS -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!-- Connect to Bootstrap Javascript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  <!-- Connect to Other Css from Assets folder -->
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="red-background">
 
-<nav>
-  <ul>
-    <li><a href="/street_to_coords/new">Street &rarr; Coords</a></li>
-    <li><a href="/coords_to_weather/new">Coords &rarr; Weather</a></li>
-    <li><a href="/street_to_weather/new">Street &rarr; Weather</a></li>
-  </ul>
-</nav>
+  <%= render "layouts/navbar" %>
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>

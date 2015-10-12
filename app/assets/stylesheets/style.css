@@ -1,0 +1,22 @@
+/* NAVBAR STYLING */
+.navbar {
+  background-color: #0099cc;
+  border-style: none;
+}
+
+.navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-brand {
+  color: #fff;
+}
+
+.navbar-toggle{
+  border-style: none;
+}
+
+.navbar-collapse {
+  border-style: none;
+}
+
+/* BACKGROUND AND OTHER STYLING */
+.red-background {
+  background-color: #f1f4f9;
+}

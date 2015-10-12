@@ -1,12 +1,29 @@
-<h1>Meteorologist</h1>
+<div class="container">
+  <div class="row">
 
-<p>Where are you?</p>
+  <%= render "layouts/sidebar" %>
 
-<form action="/street_to_weather">
-  <div>
-    <label for="the_address">Street Address</label>
-    <input type="text" name="user_street_address" id="the_address">
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Street to Weather</h3>
+        </div>
+        <div class="panel-body">
+            <form action="/street_to_weather" class="form-horizontal">
+              <div class="form-group">
+                <label for="the_address" class="col-sm-2 control-label">Street Address</label>
+                <div class="col-sm-10">
+                  <input type="text" name="user_street_address" id="the_address" class="form-control">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-primary btn-block">Tell me the weather!</button>
+                </div>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <button>Tell me the weather!</button>
-</form>
+</div>
