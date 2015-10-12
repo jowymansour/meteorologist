@@ -9,25 +9,59 @@
           <h3 class="panel-title">Street to Weather results</h3>
         </div>
         <div class="panel-body">
-          <p>Here's the outlook for <%= @street_address %>:</p>
-          <dl>
-            <dt>Current Temperature</dt>
-            <dd><%= @current_temperature %></dd>
+          <div class="col-md-6">
+            <p>Here's the outlook for <%= @street_address %>:</p>
+            <dl>
+              <dt>Current Temperature</dt>
+              <dd><%= @current_temperature %></dd>
 
-            <dt>Current Summary</dt>
-            <dd><%= @current_summary %></dd>
+              <dt>Current Summary</dt>
+              <dd><%= @current_summary %></dd>
 
-            <dt>Outlook for next sixty minutes</dt>
-            <dd><%= @summary_of_next_sixty_minutes %></dd>
+              <dt>Outlook for next sixty minutes</dt>
+              <dd><%= @summary_of_next_sixty_minutes %></dd>
 
-            <dt>Outlook for next several hours</dt>
-            <dd><%= @summary_of_next_several_hours %></dd>
+              <dt>Outlook for next several hours</dt>
+              <dd><%= @summary_of_next_several_hours %></dd>
 
-            <dt>Outlook for next several days</dt>
-            <dd><%= @summary_of_next_several_days %></dd>
-          </dl>
+              <dt>Outlook for next several days</dt>
+              <dd><%= @summary_of_next_several_days %></dd>
+            </dl>
+          </div>
+          <div class="col-md-6">
+            <div id="map"></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+<script>
+  var map;
+  function initMap() {
+    var location = new google.maps.LatLng(<%= @lat %>, <%= @lng %>);
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: location,
+      zoom: 7,
+      mapTypeControl: true,
+      mapTypeControlOptions: {
+        style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+        position: google.maps.ControlPosition.RIGHT_TOP
+      }
+    });
+
+    var coordInfoWindow = new google.maps.InfoWindow();
+
+    var contentString = '<dl><dt>Street Address:</dt><dd><%= @street_address %><dd>' +
+        '<dt>Latitude:</dt><dd><%= @lat %><dd>' +
+        '<dt>Longitude:</dt><dd><%= @lng %><dd></dl>';
+
+    coordInfoWindow.setContent(contentString);
+    coordInfoWindow.setPosition(location);
+    coordInfoWindow.open(map);
+
+  }
+</script>

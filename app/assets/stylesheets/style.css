@@ -1,4 +1,6 @@
+
 /* NAVBAR STYLING */
+
 .navbar {
   background-color: #0099cc;
   border-style: none;
@@ -17,6 +19,13 @@
 }
 
 /* BACKGROUND AND OTHER STYLING */
+
 .red-background {
   background-color: #f1f4f9;
 }
+
+#map {
+        height: 400px;
+        width: auto;
+}
+
